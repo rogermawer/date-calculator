@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<!-- designed by mangomeat.com 2018-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Days Left Calculator</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- for date picker -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="bootstrap-datepicker-1.6.4-dist/css/bootstrap-datepicker.css">
+<script src="bootstrap-datepicker-1.6.4-dist/js/bootstrap-datepicker.js"></script>
+
+
+  
+      
+<script>
+$(document).ready(function(){
+   
+   
+    //initialize from-date box with today as default
+    $('#dateCalc .from-date .input-group.date').datepicker('update', new Date());
+    //tell picker to set this date, otherwise returns undefined
+    $('#from-date').val($(this).datepicker('getFormattedDate'));
+    
+    //initialize to-date box
+    $('#dateCalc .to-date .input-group.date').datepicker();
+    
+    $('#from-date').on('changeDate', function() {
+        $(this).val($('#from-date').datepicker('getFormattedDate'));
+    });
+    $('#to-date').on('changeDate', function() {
+        $(this).val($('#to-date').datepicker('getFormattedDate'));
+    });
+});
+    
+    
+    
+    
+</script>
+   
+<style>
+    html,body {
+        height: 100%;
+    }
+    .shell{
+        display: flex;
+        flex-flow: column;
+        height: 100%;
+    }
+    #dateCalc{
+        padding-top: 30px;
+        text-align: center
+    }
+    .result{
+        display: flex;
+        align-items: center;
+        justify-content:center;
+        flex-grow: .5;
+        padding:20px;
+    }
+    #result{
+        font-size: 50px
+    }
+    .calculate{
+        background-color: #ffffff;
+        border: 1px solid lightgrey;
+        width:100px;
+        height: 30px;
+        border-radius: 4px;
+    }
+    .to-date{
+        padding-left: 50px;
+    }
+    
+    @media (max-width:600px){
+        .to-date{
+            padding-left: 0px;
+        }
+        .from-date{
+            padding-bottom: 20px;
+        }
+    }
+</style>
+<body>
+    <div class="shell">
+        <div id="dateCalc">
+            <div class="from-date" style="display: inline-block">
+            From Date:
+                <div id="from-date" class="input-group date" style="width:200px">
+                <input type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                </div>
+            </div>
+            <div class="to-date" style="display: inline-block">
+            To Date:
+                <div id="to-date" class="input-group date" style="width:200px">
+                <input type="text" class="form-control"><span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+                </div>
+            </div>
+            <p></p>
+            <button class="calculate">Calculate</button>
+        </div>
+    
+        <div class="result">
+            <h1 id='result'></h1>
+        </div>
+        
+        
+    </div>
+ 
+    
+<script src="month-calculator.js"></script>
+</body>
+      
